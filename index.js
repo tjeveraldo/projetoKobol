@@ -8,12 +8,13 @@ let formSubmit = (event) =>{
     users[n] = {}
    
     if(selectedRow === null){
-        createUser();
+        if(validate()){
+            createUser();
+        }
     }
     else{
         updateUser();
-    }
-    
+    }   
 
 }
 
@@ -42,6 +43,29 @@ let clearForm = () =>{
     document.getElementById('email').value = "";
     document.getElementById('age').value = "";
     document.getElementById('skills').value = "";
+}
+
+const validate = () => {
+
+    let nome = document.getElementById('name').value;
+    let email = document.getElementById('email').value; 
+    let idade = document.getElementById('age').value ;
+    let tecnologias = document.getElementById('skills').value;
+    if(nome === "" || email === "" ||idade === "" || tecnologias  === "") {
+        alert("Você não pode efetuar o cadastro, existe algum campo vazio")
+        return false;
+    }
+    else {
+        createUser(nome,email,idade,tecnologias);
+        return true;
+    }
+}
+
+let onDelete = (linha) => {
+    if(confirm("Quer deletar o registro?")){
+          let i=linha.parentNode.parentNode.rowIndex;
+          document.getElementById('myTable').deleteRow(i);
+    }
 }
 
 let insertTable = () => {
@@ -78,27 +102,3 @@ let onEdit = (td) => {
     document.getElementById("skills").value = selectedRow.cells[3].innerHTML;
 
 }
-
-let onDelete = (linha) => {
-    if(confirm("Quer deletar o registro?")){
-          let i=linha.parentNode.parentNode.rowIndex;
-          document.getElementById('myTable').deleteRow(i);
-    }
-}              
-
-const validarCampos = (event) => {
-
-    let nome = document.getElementById('name').value;
-    let email = document.getElementById('email').value; 
-    let idade = document.getElementById('age').value ;
-    let tecnologias = document.getElementById('skills').value;
-
-    event.preventDefault();
-
-
-    if(nome === "" || email === "" ||idade === "" || tecnologias  === "") {
-        alert("Você não pode efetuar o cadastro, existe algum campo vazio")
-    }else {
-        createUser(nome,email,idade,tecnologias);
-    }
-    }
