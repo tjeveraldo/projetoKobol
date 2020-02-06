@@ -2,46 +2,38 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8"/>
 </head>
 <body>
 
-<div class="formulario">
-    <form onsubmit="return formSubmit(event)">
-        <div class="form-header">
-            <h2>Cadastro</h2>
-            <hr />
-        </div>
-
-        <div class="form-container">
+<h2>Cadastro</h2>
+<section>
+    <div class="formulario">
+        <form onsubmit="return formSubmit(event)">
             <label>Nome:</label></br>
             <input id="name" type="text" name="nome" placeholder="Por favor informe seu nome">
-        </div>
-        <div class="form-container">
+            <br>
             <label>Email:</label></br>
             <input type="email" name="email" id="email" placeholder="Por favor informe seu email"> </br>
-        </div>
-        <div class="form-container">
             <label>Idade:</label></br>
             <input type="number" name="idade" id="age" placeholder="Informe sua idade" ></br>
-        </div>
-
-        <div class="form-container">
             <label>Tecnologias:</label></br>
             <input type="text" name="tecnologias" id="skills" placeholder="Informe as tecnologias que você gosta"></br>
-        </div>
-        <button type="submit">ENVIAR</button>
-    </form>
-</div>
+            <button type="submit">ENVIAR</button>
+        </form>
+    </div>
 
-<table id ="myTable">
-  <tr>
-    <th> NOME</th>
-    <th> EMAIL</th>
-    <th> IDADE</th>
-    <th> TECNOLOGIAS</th>
-    <th> AÇÕES</th>
-  </tr>    
-</table>
+    <table id ="myTable">
+        <tr>
+        <th> NOME</th>
+        <th> EMAIL</th>
+        <th> IDADE</th>
+        <th> TECNOLOGIAS</th>
+        <th> AÇÕES</th>
+        </tr>    
+    </table>
+
+</section>
 
 <script src="index.js"></script>
 
