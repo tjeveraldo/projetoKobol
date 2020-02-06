@@ -56,7 +56,6 @@ const validate = () => {
         return false;
     }
     else {
-        createUser(nome,email,idade,tecnologias);
         return true;
     }
 }
